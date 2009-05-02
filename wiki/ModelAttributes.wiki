@@ -1,0 +1,47 @@
+#summary Attributes and modifiers for models.
+#labels Featured
+
+NOTE: All objects will automatically have ':id, :created, :updated' attributes.
+
+*has_attributes*
+
+Add basic attributes types with this. 
+
+eg: 
+{{{
+class MyModel
+  has_attributes :name, :age, :height, :birthday
+end
+}}}
+
+*are_ints and are_dates*
+
+Lets simple_record know that certain attributes defined in has_attributes should be treated as integers (this is required because SimpleDB only has strings).
+
+eg:
+{{{
+class MyModel
+  has_attributes :name, :age, :height, :birthday
+  are_ints :age, :height
+  are_dates :birthday
+end
+}}}
+
+*belongs_to*
+
+Creates a many-to-one relationship. Can only have one per belongs_to call.
+
+{{{
+class MyModel
+  belongs_to :school
+  has_attributes :name, :age, :height, :birthday
+  are_ints :age, :height
+  are_dates :birthday
+end
+}}}
+
+Which requires another class called 'School' or you can specify the class explicitly with:
+
+{{{
+belongs_to :school, :class_name => "Institution"
+}}}
