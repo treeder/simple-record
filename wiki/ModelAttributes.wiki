@@ -3,7 +3,7 @@
 
 NOTE: All objects will automatically have ':id, :created, :updated' attributes.
 
-*has_attributes*
+===has_attributes===
 
 Add basic attributes types with this. 
 
@@ -14,7 +14,7 @@ class MyModel
 end
 }}}
 
-*are_ints and are_dates*
+===are_ints and are_dates===
 
 Lets simple_record know that certain attributes defined in has_attributes should be treated as integers (this is required because SimpleDB only has strings).
 
@@ -27,7 +27,7 @@ class MyModel
 end
 }}}
 
-*belongs_to*
+===belongs_to===
 
 Creates a many-to-one relationship. Can only have one per belongs_to call.
 
@@ -44,4 +44,12 @@ Which requires another class called 'School' or you can specify the class explic
 
 {{{
 belongs_to :school, :class_name => "Institution"
+}}}
+
+===set_table_name or set_domain_name===
+
+{{{
+class SomeModel
+  set_table_name :different_model
+end
 }}}
