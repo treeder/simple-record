@@ -1,0 +1,8 @@
+#summary SimpleRecord configuration
+#labels Featured
+
+===Domain Prefix===
+To set a global prefix across all your models, use:
+{{{
+SimpleRecord::Base.set_domain_prefix("myprefix_")
+}}}
