@@ -6,3 +6,29 @@ To set a global prefix across all your models, use:
 {{{
 SimpleRecord::Base.set_domain_prefix("myprefix_")
 }}}
+
+===Connection Modes===
+
+There are 4 different connection modes:
+
+  * per_request (default) - opens and closes a new connection to simpledb for every simpledb request
+  * single - one connection across the entire application, not recommended unless the app is used by a single person.
+  * per_thread - a connection is used for every thread in the application. This is good, but the catch is that you have to ensure to close the connection.
+  * pool - NOT IMPLEMENTED YET - opens a maximum number of connections and round robins them for any simpledb request. 
+
+We recommend per_request or pool for rails apps.
+
+For rails, be sure to add this to your Application controller: 
+
+{{{
+after_filter :close_sdb_connection
+
+  def base_url
+    BASE_URL
+  end
+
+  def close_sdb_connection
+    puts 'closing connection'
+    RightAws::ActiveSdb.close_connection
+  end
+}}}
