@@ -23,12 +23,7 @@ For rails, be sure to add this to your Application controller:
 {{{
 after_filter :close_sdb_connection
 
-  def base_url
-    BASE_URL
-  end
-
   def close_sdb_connection
-    puts 'closing connection'
     RightAws::ActiveSdb.close_connection
   end
 }}}
