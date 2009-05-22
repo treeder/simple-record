@@ -1,0 +1,31 @@
+#summary How to use SimpleRecord with Rails
+#labels Featured
+
+= Introduction =
+
+You don't really have to do anything except have your models extends SimpleRecord::Base instead of ActiveRecord::Base, but here are some tips you can use.
+
+= Details =
+
+==Change Connection Mode==
+
+Use per_thread connection mode and close the connection after each request.
+
+{{{
+after_filter :close_sdb_connection
+
+  def close_sdb_connection
+    RightAws::ActiveSdb.close_connection
+  end
+}}}
+
+==Disable ActiveRecord so you don't have to setup another database==
+
+In environment.rb, add 'config.frameworks -= [ :active_record ]', should look something like:
+
+{{{
+Rails::Initializer.run do |config|
+  config.frameworks -= [ :active_record ] 
+  ....
+end
+}}}
