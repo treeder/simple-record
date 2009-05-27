@@ -21,7 +21,7 @@ after_filter :close_sdb_connection
 
 ==Disable ActiveRecord so you don't have to setup another database==
 
-In environment.rb, add 'config.frameworks -= [ :active_record ]', should look something like:
+This is most helpful on windows so Rails doesn't need sqlite or mysql gems/drivers installed which are painful to install on windows. In environment.rb, add 'config.frameworks -= [ :active_record ]', should look something like:
 
 {{{
 Rails::Initializer.run do |config|
