@@ -1,0 +1,7 @@
+#summary Tips and Tricks and Things to Know
+#labels Featured
+
+==Automagic Stuff==
+
+Every object will automatically get id, created and updated fields.  id is a UUID string, created is set when first saved, updated is set every time you save/update.
+
