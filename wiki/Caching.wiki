@@ -1,0 +1,7 @@
+#summary Various caching options.
+
+= Introduction =
+
+TODO: Write this up.
+
+Note: Any cache that walks like a ActiveSupport::Cache::Store should work.
