@@ -3,5 +3,42 @@
 
 ==Automagic Stuff==
 
-Every object will automatically get id, created and updated fields.  id is a UUID string, created is set when first saved, updated is set every time you save/update.
+===Automatic common fields===
+ 
+Every object will automatically get the following attributes so you don't need to define them:
 
+* id - UUID string
+* created - set when first save
+* updated - set every time you save/update
+
+===belongs_to foreign keys/IDs are accessible without touching the database===
+
+If you had the following in your model:
+
+{{{
+belongs_to :something
+}}}
+
+Then in addition to being able to access the something object with:
+
+{{{
+o.something
+}}}
+
+or setting it with:
+
+{{{ 
+o.something = someo
+}}}
+
+You can also access the ID for something directly with:
+
+{{{
+o.something_id
+}}}
+
+or
+
+{{{
+o.something_id = x
+}}}
