@@ -16,6 +16,13 @@ There are 4 different connection modes:
   * per_thread - a connection is used for every thread in the application. This is good, but the catch is that you have to ensure to close the connection.
   * pool - NOT IMPLEMENTED YET - opens a maximum number of connections and round robins them for any simpledb request. 
 
+You set the mode when you call establish_connection:
+
+{{{
+SimpleRecord.establish_connection(AWS_ACCESS_KEY_ID,AWS_SECRET_ACCESS_KEY, :connection_mode=>:per_thread)
+}}}
+
+
 We recommend per_thread with explicitly closing the connection after each Rails request (not to be mistaken for a SimpleDB request) or pool for rails apps.
 
 For rails, be sure to add this to your Application controller if using per_thread mode:
