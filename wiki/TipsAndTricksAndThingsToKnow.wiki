@@ -7,9 +7,9 @@
  
 Every object will automatically get the following attributes so you don't need to define them:
 
-* id - UUID string
-* created - set when first save
-* updated - set every time you save/update
+  * id - UUID string
+  * created - set when first save
+  * updated - set every time you save/update
 
 ===belongs_to foreign keys/IDs are accessible without touching the database===
 
