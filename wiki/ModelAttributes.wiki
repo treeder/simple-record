@@ -10,7 +10,7 @@ Add basic attributes types with this.
 eg: 
 {{{
 class MyModel
-  has_attributes :name, :age, :height, :birthday
+  has_attributes :name
 end
 }}}
 
